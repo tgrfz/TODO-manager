@@ -1,0 +1,46 @@
+.header-block {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-header);
+    padding: 5px 10px;
+    margin-bottom: 6px;
+    height: fit-content;
+    vertical-align: middle;
+}
+
+.header-text {
+    font-size: x-large;
+    font-weight: bold;
+    display: inline-grid;
+    align-content: center;
+    min-width: fit-content;
+    padding: 2px;
+}
+
+.header-text label {
+    text-wrap: unset;
+}
+
+a.nav-tab {
+    padding: 5px 10px;
+    margin-left: 10px;
+    align-self: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 6px;
+    background-color: var(--color-button);
+    color: black;
+    border: 2px solid var(--color-button-hover);
+    transition-duration: 0.4s;
+    white-space: nowrap;
+}
+
+a.nav-tab:hover {
+    background-color: var(--color-button-hover);
+}
+
+.nav-elements {
+    display: flex;
+    flex-direction: row;
+    min-width: fit-content;
+}

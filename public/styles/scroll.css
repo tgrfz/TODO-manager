@@ -1,0 +1,33 @@
+::-webkit-scrollbar-track {
+    background-color: var(--color-button);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 130, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 130, 0, 0.65);
+}
+
+::-webkit-scrollbar {
+    width: 14px;
+    height: 14px;
+}
+
+.list::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.list::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.list::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.list::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}

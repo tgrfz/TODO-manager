@@ -1,0 +1,33 @@
+@import "header.css";
+@import "board.css";
+@import "scroll.css";
+@import "login.css";
+@import "myboards.css";
+
+:root {
+    --color-primary: #ffcfad;
+    --color-header: rgba(255, 130, 0, 0.3);
+    --color-button: rgba(255, 255, 255, 0.35);
+    --color-darker: rgba(0, 0, 0, 0.05);
+    --color-button-hover: rgba(255, 130, 0, 0.2);
+    --color-list: #ebecf0;
+    --color-list-card: white;
+    --color-board-list: rgba(255, 255, 255, 0.25);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", serif;
+    font-size: 14px;
+    background-color: var(--color-primary);
+    height: calc(100vh - 54px);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/** {*/
+/*    outline: 1px solid red;*/
+/*}*/
