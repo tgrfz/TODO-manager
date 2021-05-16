@@ -1,4 +1,4 @@
-import {addCard, addList, editCard, editListName, getBoardData, getCards, getLists} from "../data.js";
+import {addCard, addList, deleteList, editCard, editListName, getBoardData, getCards, getLists} from "../data.js";
 import {getUser} from "../users.js";
 import MainHeader from "./Header.js";
 import {onChange, onClick} from "../utils.js";
@@ -12,7 +12,7 @@ let ListView = function (list) {
         <div class="list">
             <div class="list-header">
                 <textarea id="list${list.id}" class="list-header-name">${list.name}</textarea>
-                <a class="list-menu-list"></a>
+                <a id="menu${list.id}" class="list-menu-list"></a>
             </div>
             <div id="cards${list.id}" class="list-cards">
             </div>
@@ -29,11 +29,16 @@ let CardView = function (card) {
     `;
 }
 
+let MenuView = function () {
+
+}
+
 async function newListListeners(list) {
     onClick(document.getElementById(`add${list.id}`), async () => {
         const card = await addCard(user.uid, board.id, list.id, "")
         document.getElementById(`cards${list.id}`).insertAdjacentHTML("beforeend", CardView(card))
         await newCardListeners(list.id, card);
+        document.getElementById(`card${card.id}`).focus();
     })
 
     const el = document.getElementById(`list${list.id}`);
@@ -41,7 +46,11 @@ async function newListListeners(list) {
         list.name = el.value;
         await editListName(user.uid, board.id, list)
     })
-    el.focus();
+
+    onClick(document.getElementById(`menu${list.id}`), async (event) => {
+        await deleteList(user.uid, board.id, list.id);
+        event.target.parentElement.parentElement.remove();
+    })
 }
 
 async function newCardListeners(listId, card) {
@@ -50,7 +59,6 @@ async function newCardListeners(listId, card) {
         card.name = el.value;
         await editCard(user.uid, board.id, listId, card)
     })
-    el.focus();
 }
 
 
@@ -88,6 +96,7 @@ let BoardPage = {
             const list = await addList(user.uid, board.id);
             document.getElementById("board-lists").insertAdjacentHTML("beforeend", ListView(list));
             await newListListeners(list);
+            document.getElementById(`list${list.id}`).focus();
         })
     }
 }

@@ -72,7 +72,8 @@
 }
 
 .list-menu-list:before {
-    content: "\22EF"
+    content: "\1F7AA"
+    /*content: "\22EF"*/
 }
 
 .list-card {
