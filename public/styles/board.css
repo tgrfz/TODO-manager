@@ -68,17 +68,11 @@
     background-color: var(--color-darker);
 }
 
-.add-list {
+.board .add-list {
     min-width: 272px;
     min-height: 20px;
     margin: 0 4px;
     height: fit-content;
-    padding: 5px 10px;
-    background-color: var(--color-button);
-    border: var(--color-button-hover) solid;
-    transition-duration: 0.4s;
-    border-radius: 6px;
-    cursor: pointer;
 }
 
 .add-list:hover {

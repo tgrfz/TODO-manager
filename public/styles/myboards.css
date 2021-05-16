@@ -12,18 +12,11 @@
     width: 50%;
 }
 
-.board-list-item {
+.board-list .board-list-item {
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
     font-size: large;
-    cursor: pointer;
     padding: 10px;
-    transition-duration: 0.4s;
     background-color: var(--color-board-list);
-    text-decoration: none;
-    color: black;
     display: list-item;
-}
-
-.board-list-item:hover {
-    background-color: var(--color-button-hover);
+    border: none;
 }

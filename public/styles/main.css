@@ -24,6 +24,21 @@ body {
     height: calc(100vh - 54px);
 }
 
+.button-like {
+    padding: 5px 10px;
+    cursor: pointer;
+    color: black;
+    background-color: var(--color-button);
+    border: 2px solid var(--color-button-hover);
+    text-decoration: none;
+    transition-duration: 0.4s;
+    border-radius: 6px;
+}
+
+.button-like:hover {
+    background-color: var(--color-button-hover);
+}
+
 * {
     box-sizing: border-box;
 }

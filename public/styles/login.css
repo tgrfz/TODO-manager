@@ -20,19 +20,8 @@
     border-color: var(--color-primary);
 }
 
-.main-form input[type=submit]{
-    cursor: pointer;
-    padding: 5px 10px;
+.main-form button{
     text-align: center;
-    text-decoration: none;
-    background-color: var(--color-button);
-    color: black;
-    border: 2px solid var(--color-button-hover);
-    transition-duration: 0.4s;
     white-space: nowrap;
     border-radius: 3px;
-}
-
-.main-form input[type=submit]:hover{
-    background-color: var(--color-button-hover);
 }

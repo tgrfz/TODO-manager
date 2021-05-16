@@ -22,21 +22,9 @@
 }
 
 a.nav-tab {
-    padding: 5px 10px;
     margin-left: 10px;
     align-self: center;
-    text-decoration: none;
-    cursor: pointer;
-    border-radius: 6px;
-    background-color: var(--color-button);
-    color: black;
-    border: 2px solid var(--color-button-hover);
-    transition-duration: 0.4s;
     white-space: nowrap;
-}
-
-a.nav-tab:hover {
-    background-color: var(--color-button-hover);
 }
 
 .nav-elements {
