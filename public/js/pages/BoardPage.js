@@ -1,7 +1,7 @@
-import {addCard, addList, getBoardData, getCards, getLists} from "../data.js";
+import {addCard, addList, editCard, editListName, getBoardData, getCards, getLists} from "../data.js";
 import {getUser} from "../users.js";
 import MainHeader from "./Header.js";
-import {onClick} from "../utils.js";
+import {onChange, onClick} from "../utils.js";
 
 let board;
 let user;
@@ -25,7 +25,7 @@ let ListView = function (list) {
 
 let CardView = function (card) {
     return `
-    <div id="card${card.id}" class="list-card">${card.name}</div>
+    <textarea id="card${card.id}" class="list-card">${card.name}</textarea>
     `;
 }
 
@@ -53,11 +53,21 @@ let BoardPage = {
             const cards = await getCards(user.uid, board.id, list.id) || [];
             for (let card of cards) {
                 document.getElementById(`cards${list.id}`).insertAdjacentHTML("beforeend", CardView(card))
+
+                onChange(document.getElementById(`card${card.id}`), async () => {
+                    card.name = document.getElementById(`card${card.id}`).value;
+                    await editCard(user.uid, board.id, list.id, card)
+                })
             }
 
             onClick(document.getElementById(`add${list.id}`), async () => {
                 const card2 = await addCard(user.uid, board.id, list.id, "TODO")
                 document.getElementById(`cards${list.id}`).insertAdjacentHTML("beforeend", CardView(card2))
+            })
+
+            onChange(document.getElementById(`list${list.id}`), async () => {
+                list.name = document.getElementById(`list${list.id}`).value;
+                await editListName(user.uid, board.id, list)
             })
         }
         onClick(document.getElementById("add-list-btn"), async () => {

@@ -63,6 +63,10 @@ export async function getLists(userId, boardId) {
     });
 }
 
+export async function editListName(userId, boardId, list) {
+    await db.collection('users').doc(userId).collection('boards').doc(boardId).collection('lists').doc(list.id).update(list);
+}
+
 export async function addCard(userId, boardId, listId, cardName) {
     const card = {timestamp: +new Date(), name: cardName};
     const query = await db.collection('users').doc(userId).collection('boards').doc(boardId).collection('lists').doc(listId).collection('cards').add(card);
@@ -88,3 +92,6 @@ export async function getCards(userId, boardId, listId) {
     });
 }
 
+export async function editCard(userId, boardId, listId, card) {
+    await db.collection('users').doc(userId).collection('boards').doc(boardId).collection('lists').doc(listId).collection('cards').doc(card.id).update(card);
+}
