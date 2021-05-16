@@ -2,26 +2,20 @@
     display: flex;
     flex-direction: column;
     margin-block: 10px;
-    margin: 10px;
+    margin: auto;
     max-width: 300px;
 }
 .login-block * {
     margin-bottom: 10px;
 }
-.main-form {
+.login-form {
     display: flex;
     flex-direction: column;
 }
 
-.main-form input{
+.login-form input{
     min-height: 20px;
     padding: 6px;
     border-radius: 3px;
     border-color: var(--color-primary);
-}
-
-.main-form button{
-    text-align: center;
-    white-space: nowrap;
-    border-radius: 3px;
 }
