@@ -1,8 +1,13 @@
 .board {
     display: flex;
-    padding: 6px;
     overflow-x: auto;
     height: 100%;
+}
+
+#board-lists {
+    display: flex;
+    height: 100%;
+    padding: 6px;
 }
 
 .list {
@@ -24,10 +29,34 @@
     justify-content: space-between;
     line-height: 24px;
     font-weight: bolder;
+    height: fit-content;
 }
 
 .list-header-name {
-    margin: 4px 4px 8px;
+    user-select: none;
+    font: inherit;
+    border: none;
+    box-sizing: border-box;
+    display: block;
+    box-shadow: none;
+    line-height: 20px;
+    transition-duration: 85ms;
+    transition-timing-function: ease;
+    background: transparent;
+    border-radius: 3px;
+    font-weight: 600;
+    min-height: 20px;
+    padding: 4px 8px;
+    max-height: 256px;
+    resize: none;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    height: 28px;
+}
+
+.list-header-name:focus {
+    background-color: #fff;
+    box-shadow: 0 0 0 1px #7b7b7b;
 }
 
 .list-menu-list {
@@ -71,10 +100,7 @@
 .board .add-list {
     min-width: 272px;
     min-height: 20px;
-    margin: 0 4px;
+    margin: 6px 4px;
     height: fit-content;
-}
-
-.add-list:hover {
-    background-color: var(--shadow-hovered-default);
+    text-align: start;
 }

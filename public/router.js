@@ -51,7 +51,7 @@ export class Router {
     async _loadPage(url) {
         console.log("Load page: " + url);
 
-        const page = this.routes[url] || TestPage;
+        const page = this.routes[url.substr(0, url.indexOf("?")) || url] || TestPage;
         const headerView = page.header || { render: async () => `` }
 
         await render(headerView, document.getElementById('header'))
@@ -60,7 +60,7 @@ export class Router {
 
     _loadInitial() {
         console.log("Initial: " + Router._path);
-        window.history.replaceState({}, "", Router._path);
+        window.history.replaceState({}, "", document.URL);
         this._loadPage(Router._path);
     }
 

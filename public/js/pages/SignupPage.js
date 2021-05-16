@@ -11,7 +11,7 @@ let SignupPage = {
             <div class="login-wrap">
                 <div class="login-block">
                     <h2>Sign up</h2>
-                    <form id="login_form" class="login-form">
+                    <form id="login-form" class="login-form">
                         <input type="email" id="email" name="email" placeholder="Login" minlength="5" required/>
                         <input type="password" id="password" name="password" placeholder="Password" minlength="8" required/>
                         <button class="button-like" type="submit">Sign up</button>
@@ -22,7 +22,7 @@ let SignupPage = {
         `;
     },
     after_render: async () => {
-        onSubmit(document.getElementById("login_form"), ({email, password}) => {
+        onSubmit(document.getElementById("login-form"), ({email, password}) => {
             signup(email, password).then(() => navigate("/boards"));
         });
 

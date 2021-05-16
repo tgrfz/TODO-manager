@@ -12,7 +12,7 @@ let MainHeader = {
         return `
         <div class="header-block">
             <div class="header-text">   
-                <label>My boards</label>
+                <label id="header-label">My boards</label>
             </div>
             <div class="nav-elements">
                 <a class="nav-tab button-like" id="header-account" href="">${user.email}</a>

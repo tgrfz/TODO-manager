@@ -31,8 +31,14 @@
     width: 100%;
 }
 
-.boards #add-board-btn {
-    font-size: medium;
-    padding: 10px;
-    width: fit-content;
+#add-board-form * {
+    min-height: 30px;
+    padding: 6px;
+    border-radius: 6px;
+    border-color: var(--color-primary);
+    margin-right: 10px;
+}
+
+#add-board-form button {
+   padding: 7px 14px;
 }
