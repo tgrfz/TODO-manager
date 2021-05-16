@@ -76,5 +76,5 @@
 }
 
 .add-list:hover {
-    background-color: var(--color-button-hover);
+    background-color: var(--shadow-hovered-default);
 }

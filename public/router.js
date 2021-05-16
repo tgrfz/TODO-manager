@@ -1,5 +1,3 @@
-// import {NoopHeader} from "./js/Headers.js";
-
 let TestPage = {
     render: async () => {
         return `
@@ -54,9 +52,9 @@ export class Router {
         console.log("Load page: " + url);
 
         const page = this.routes[url] || TestPage;
-        // const headerView = page.header || NoopHeader
+        const headerView = page.header || { render: async () => `` }
 
-        // await render(headerView, document.getElementById('header'))
+        await render(headerView, document.getElementById('header'))
         await render(page, document.getElementById('content'))
     }
 
