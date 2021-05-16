@@ -47,6 +47,10 @@ body {
     font-size: 14px;
 }
 
+*:focus {
+    outline: none;
+}
+
 #content {
     min-height: 100%;
 }

@@ -8,8 +8,8 @@
 .login-block {
     display: flex;
     flex-direction: column;
-    min-width: 300px;
-    padding: 10px;
+    min-width: 320px;
+    padding: 16px;
     border-radius: 10px;
     background-color: var(--color-login-block);
     box-shadow: var(--shadow-default);
@@ -22,6 +22,10 @@
 .login-block h2 {
     margin-top: 0;
     font-size: 1.5em;
+}
+
+.login-block a {
+    margin-bottom: 0;
 }
 
 .login-form {
