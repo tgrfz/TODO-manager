@@ -8,15 +8,17 @@ let SignupPage = {
     },
     render: async () => {
         return `
-            <div class="login-block">
-                <h2>Sign up</h2>
-                <form id="login_form" class="login-form" method="post">
-                    <input type="text" id="login" name="login" placeholder="Login" minlength="5" required/>
-                    <input type="Password" id="password" name="password" placeholder="Password" minlength="8" required/>
-                    <input type="Password" id="password2" name="password2" placeholder="Repeat password" minlength="8" required/>
-                    <button class="button-like" type="submit">Sign up</button>
-                </form>
-                <a id="log_in" href="/login">Already have an account? Log In</a>
+            <div class="login-wrap">
+                <div class="login-block">
+                    <h2>Sign up</h2>
+                    <form id="login_form" class="login-form" method="post">
+                        <input type="text" id="login" name="login" placeholder="Login" minlength="5" required/>
+                        <input type="Password" id="password" name="password" placeholder="Password" minlength="8" required/>
+                        <input type="Password" id="password2" name="password2" placeholder="Repeat password" minlength="8" required/>
+                        <button class="button-like" type="submit">Sign up</button>
+                    </form>
+                    <a id="log_in" href="/login">Already have an account? Log In</a>
+                </div>
             </div>
         `;
     },

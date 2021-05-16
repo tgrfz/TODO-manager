@@ -6,20 +6,22 @@
 
 :root {
     --color-primary: #ffcfad;
-    --color-header: rgba(255, 130, 0, 0.3);
-    --color-button: rgba(255, 255, 255, 0.35);
+    --color-header: #ffa664;
+    --color-button: #ffa664;
+    --color-button-text: #1c1c1c;
     --color-darker: rgba(0, 0, 0, 0.05);
-    --color-button-hover: rgba(255, 130, 0, 0.2);
     --color-list: #ebecf0;
     --color-list-card: white;
     --color-board-list: rgba(255, 255, 255, 0.25);
+    --color-login-block: rgba(255, 192, 126, 0.30);
+    --shadow-default: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+    --shadow-hovered-default: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
 }
 
 body {
     margin: 0;
     padding: 0;
     font-family: "Segoe UI", serif;
-    font-size: 14px;
     background-color: var(--color-primary);
     height: calc(100vh - 54px);
 }
@@ -27,20 +29,26 @@ body {
 .button-like {
     padding: 5px 10px;
     cursor: pointer;
-    color: black;
+    color: var(--color-button-text);
     background-color: var(--color-button);
-    border: 2px solid var(--color-button-hover);
+    border: none;
     text-decoration: none;
     transition-duration: 0.4s;
     border-radius: 6px;
 }
 
 .button-like:hover {
-    background-color: var(--color-button-hover);
+    /*background-color: var(--color-button-hover);*/
+    box-shadow: var(--shadow-hovered-default);
 }
 
 * {
     box-sizing: border-box;
+    font-size: 14px;
+}
+
+#content {
+    min-height: 100%;
 }
 
 /** {*/
