@@ -29,6 +29,31 @@ let CardView = function (card) {
     `;
 }
 
+async function newListListeners(list) {
+    onClick(document.getElementById(`add${list.id}`), async () => {
+        const card = await addCard(user.uid, board.id, list.id, "")
+        document.getElementById(`cards${list.id}`).insertAdjacentHTML("beforeend", CardView(card))
+        await newCardListeners(list.id, card);
+    })
+
+    const el = document.getElementById(`list${list.id}`);
+    onChange(el, async () => {
+        list.name = el.value;
+        await editListName(user.uid, board.id, list)
+    })
+    el.focus();
+}
+
+async function newCardListeners(listId, card) {
+    const el = document.getElementById(`card${card.id}`);
+    onChange(el, async () => {
+        card.name = el.value;
+        await editCard(user.uid, board.id, listId, card)
+    })
+    el.focus();
+}
+
+
 let BoardPage = {
     header: MainHeader,
     before_render: async () => {
@@ -37,12 +62,13 @@ let BoardPage = {
         const label = document.getElementById("header-label");
         label.innerText = board.name;
         lists = await getLists(user.uid, board.id) || [];
+        lists.sort((a, b) => a.timestamp - b.timestamp)
     },
     render: async () => {
         return `
         <div class="board">
             <div id="board-lists">
-            ${lists.sort((a, b) => a.timestamp - b.timestamp).map(it => ListView(it)).join("\n")}
+            ${lists.map(it => ListView(it)).join("\n")}
             </div>
             <button id="add-list-btn" class="add-list button-like">Add list</button>
         </div>
@@ -51,33 +77,17 @@ let BoardPage = {
     after_render: async () => {
         for (let list of lists) {
             const cards = await getCards(user.uid, board.id, list.id) || [];
+            cards.sort((a, b) => a.timestamp - b.timestamp);
             for (let card of cards) {
-                document.getElementById(`cards${list.id}`).insertAdjacentHTML("beforeend", CardView(card))
-
-                onChange(document.getElementById(`card${card.id}`), async () => {
-                    card.name = document.getElementById(`card${card.id}`).value;
-                    await editCard(user.uid, board.id, list.id, card)
-                })
+                document.getElementById(`cards${list.id}`).insertAdjacentHTML("beforeend", CardView(card));
+                await newCardListeners(list.id, card);
             }
-
-            onClick(document.getElementById(`add${list.id}`), async () => {
-                const card2 = await addCard(user.uid, board.id, list.id, "TODO")
-                document.getElementById(`cards${list.id}`).insertAdjacentHTML("beforeend", CardView(card2))
-            })
-
-            onChange(document.getElementById(`list${list.id}`), async () => {
-                list.name = document.getElementById(`list${list.id}`).value;
-                await editListName(user.uid, board.id, list)
-            })
+            await newListListeners(list);
         }
         onClick(document.getElementById("add-list-btn"), async () => {
             const list = await addList(user.uid, board.id);
             document.getElementById("board-lists").insertAdjacentHTML("beforeend", ListView(list));
-
-            onClick(document.getElementById(`add${list.id}`), async () => {
-                const card = await addCard(user.uid, board.id, list.id, "TODO")
-                document.getElementById(`cards${list.id}`).insertAdjacentHTML("beforeend", CardView(card))
-            })
+            await newListListeners(list);
         })
     }
 }

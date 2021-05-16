@@ -39,7 +39,7 @@ export async function getBoardData(userId, boardId) {
 }
 
 export async function addList(userId, boardId) {
-    const list = {timestamp: +new Date(), name: "Name"};
+    const list = {timestamp: +new Date(), name: ""};
     const query = await db.collection('users').doc(userId).collection('boards').doc(boardId).collection('lists').add(list);
     list.id = query.id;
     return list;
