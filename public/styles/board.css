@@ -73,17 +73,38 @@
 
 .list-menu-list:before {
     content: "\1F7AA"
-    /*content: "\22EF"*/
 }
 
-.list-card {
+.card-wrap {
+    display: flex;
+    justify-content: space-between;
     background-color: var(--color-list-card);
     border-radius: 3px;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+    width: 100%;
     margin-bottom: 8px;
+}
+
+.card-menu-list {
+    padding: 3px 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 3px;
+    height: 100%;
+    margin: 0;
+}
+
+.card-menu-list:hover {
+    background-color: var(--color-darker);
+}
+
+.card-menu-list:before {
+    content: "\22EF";
+}
+
+.list-card {
     padding: 4px 6px;
     width: 100%;
-
     user-select: none;
     border: none;
     box-sizing: border-box;
@@ -115,4 +136,32 @@
     margin: 6px 4px;
     height: fit-content;
     text-align: start;
+}
+
+.card-menu {
+    visibility: hidden;
+    list-style-type: none;
+    padding: 0;
+    position: absolute;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.35);
+    height: fit-content;
+    overflow: hidden;
+}
+
+.card-menu.show {
+    visibility: visible;
+}
+
+
+.card-menu * {
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+    padding: 8px;
+    cursor: pointer;
+}
+
+.card-menu *:hover {
+    background-color: var(--color-darker);
 }

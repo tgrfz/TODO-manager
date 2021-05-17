@@ -9,7 +9,7 @@ let routes = {
     "/signup": SignupPage,
     "/boards": BoardsPage,
     "/board": BoardPage,
-    "/": LoginPage
+    "/": BoardsPage
 }
 
 console.log("before")

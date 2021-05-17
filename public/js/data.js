@@ -71,8 +71,8 @@ export async function deleteList(userId, boardId, listId) {
     await db.collection('users').doc(userId).collection('boards').doc(boardId).collection('lists').doc(listId).delete();
 }
 
-export async function addCard(userId, boardId, listId, cardName) {
-    const card = {timestamp: +new Date(), name: cardName};
+export async function addCard(userId, boardId, listId, card = {name: ""}) {
+    card.timestamp = +new Date();
     const query = await db.collection('users').doc(userId).collection('boards').doc(boardId).collection('lists').doc(listId).collection('cards').add(card);
     card.id = query.id;
     return card;
@@ -101,5 +101,6 @@ export async function editCard(userId, boardId, listId, card) {
 }
 
 export async function deleteCard(userId, boardId, listId, cardId) {
+    console.log(cardId)
     await db.collection('users').doc(userId).collection('boards').doc(boardId).collection('lists').doc(listId).collection('cards').doc(cardId).delete();
 }
