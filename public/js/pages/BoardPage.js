@@ -9,7 +9,7 @@ import {
     getCards,
     getLists
 } from "../data.js";
-import {getUser} from "../users.js";
+import {getUser, guardLogin} from "../users.js";
 import MainHeader from "./Header.js";
 import {onChange, onClick} from "../utils.js";
 
@@ -105,6 +105,7 @@ async function newCardListeners(listId, card) {
 let BoardPage = {
     header: MainHeader,
     before_render: async () => {
+        await guardLogin();
         user = await getUser();
         board = await getBoardData(user.uid, new URL(document.URL).searchParams.get("id"));
         const label = document.getElementById("header-label");
@@ -145,7 +146,7 @@ let BoardPage = {
         onClick(window, (event) => {
             if (!event.target.matches(".card-menu-list")) {
                 const menu = document.getElementById(`card-menu`);
-                if (menu.classList.contains("show")) {
+                if (menu != null && menu.classList.contains("show")) {
                     menu.classList.remove("show")
                 }
             }

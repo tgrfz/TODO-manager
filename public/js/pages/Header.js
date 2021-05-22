@@ -1,11 +1,12 @@
 import navigate from "../../app.js";
 import {onClick} from "../utils.js";
-import {getUser, signout} from "../users.js";
+import {getUser, guardLogin, signout} from "../users.js";
 
 let user = "";
 
 let MainHeader = {
     before_render: async () => {
+         await guardLogin();
          user = await getUser();
     },
     render: async () => {
@@ -27,7 +28,7 @@ let MainHeader = {
         })
 
         onClick(document.getElementById("header-signout"), () => {
-            signout().then(() => navigate("/"));
+            signout().then(() => navigate("/login"));
         })
 
         // const user = await getUser();
