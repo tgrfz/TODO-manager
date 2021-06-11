@@ -5,27 +5,54 @@
 @import "myboards.css";
 
 :root {
-    --color-primary: #ffcfad;
-    --color-header: rgba(255, 130, 0, 0.3);
-    --color-button: rgba(255, 255, 255, 0.35);
+    --color-primary: #ffd3b3;
+    --color-header: #ffb37b;
+    --color-button: #ffb37b;
+    --color-button-text: #1c1c1c;
     --color-darker: rgba(0, 0, 0, 0.05);
-    --color-button-hover: rgba(255, 130, 0, 0.2);
     --color-list: #ebecf0;
     --color-list-card: white;
-    --color-board-list: rgba(255, 255, 255, 0.25);
+    --color-board-list: rgba(255, 192, 126, 0.40);
+    --color-login-block: rgba(255, 192, 126, 0.30);
+    --shadow-default: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+    --shadow-hovered-default: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
+    --border-board-list: 1px solid #fcb682;
 }
 
 body {
     margin: 0;
     padding: 0;
-    font-family: "Segoe UI", serif;
-    font-size: 14px;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
     background-color: var(--color-primary);
-    height: calc(100vh - 54px);
+    height: calc(100vh - 58px);
+}
+
+.button-like {
+    padding: 5px 10px;
+    cursor: pointer;
+    color: var(--color-button-text);
+    background-color: var(--color-button);
+    border: none;
+    text-decoration: none;
+    transition-duration: 0.4s;
+    border-radius: 6px;
+}
+
+.button-like:hover {
+    box-shadow: var(--shadow-hovered-default);
 }
 
 * {
     box-sizing: border-box;
+    font-size: 14px;
+}
+
+*:focus {
+    outline: none;
+}
+
+#content {
+    height: 100%;
 }
 
 /** {*/

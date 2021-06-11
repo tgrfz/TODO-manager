@@ -1,8 +1,13 @@
 .board {
     display: flex;
-    padding: 6px;
     overflow-x: auto;
     height: 100%;
+}
+
+#board-lists {
+    display: flex;
+    height: 100%;
+    padding: 6px;
 }
 
 .list {
@@ -13,9 +18,9 @@
     height: fit-content;
     max-height: 100%;
     overflow-y: auto;
-    padding: 6px;
+    padding: 8px;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
-    min-width: 272px;
+    width: 272px;
     margin: 0 4px;
 }
 
@@ -24,10 +29,34 @@
     justify-content: space-between;
     line-height: 24px;
     font-weight: bolder;
+    height: fit-content;
 }
 
 .list-header-name {
-    margin: 4px 4px 8px;
+    user-select: none;
+    font: inherit;
+    border: none;
+    box-sizing: border-box;
+    display: block;
+    box-shadow: none;
+    line-height: 20px;
+    transition-duration: 85ms;
+    transition-timing-function: ease;
+    background: transparent;
+    border-radius: 3px;
+    font-weight: 600;
+    min-height: 20px;
+    padding: 4px 8px;
+    max-height: 256px;
+    resize: none;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    height: 28px;
+}
+
+.list-header-name:focus {
+    background-color: #fff;
+    box-shadow: 0 0 0 1px #7b7b7b;
 }
 
 .list-menu-list {
@@ -43,17 +72,50 @@
 }
 
 .list-menu-list:before {
-    content: "\22EF"
+    content: "\1F7AA"
 }
 
-.list-card {
+.card-wrap {
+    display: flex;
+    justify-content: space-between;
     background-color: var(--color-list-card);
     border-radius: 3px;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
-    cursor: pointer;
+    width: 100%;
     margin-bottom: 8px;
-    min-height: 20px;
+}
+
+.card-menu-list {
+    padding: 3px 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 3px;
+    height: 100%;
+    margin: 0;
+}
+
+.card-menu-list:hover {
+    background-color: var(--color-darker);
+}
+
+.card-menu-list:before {
+    content: "\22EF";
+}
+
+.list-card {
     padding: 4px 6px;
+    width: 100%;
+    user-select: none;
+    border: none;
+    box-sizing: border-box;
+    display: block;
+    height: 24px;
+    transition-duration: 85ms;
+    transition-timing-function: ease;
+    max-height: 256px;
+    resize: none;
+    overflow: hidden;
+    overflow-wrap: break-word;
 }
 
 .list-add-card {
@@ -68,19 +130,38 @@
     background-color: var(--color-darker);
 }
 
-.add-list {
+.board .add-list {
     min-width: 272px;
     min-height: 20px;
-    margin: 0 4px;
+    margin: 6px 4px;
     height: fit-content;
-    padding: 5px 10px;
-    background-color: var(--color-button);
-    border: var(--color-button-hover) solid;
-    transition-duration: 0.4s;
-    border-radius: 6px;
+    text-align: start;
+}
+
+.card-menu {
+    visibility: hidden;
+    list-style-type: none;
+    padding: 0;
+    position: absolute;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.35);
+    height: fit-content;
+    overflow: hidden;
+}
+
+.card-menu.show {
+    visibility: visible;
+}
+
+
+.card-menu * {
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+    padding: 8px;
     cursor: pointer;
 }
 
-.add-list:hover {
-    background-color: var(--color-button-hover);
+.card-menu *:hover {
+    background-color: var(--color-darker);
 }

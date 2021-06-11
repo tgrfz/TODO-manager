@@ -1,14 +1,15 @@
 .header-block {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: var(--color-header);
-    padding: 5px 10px;
+    padding: 10px;
     margin-bottom: 6px;
-    height: fit-content;
+    height: 50px;
     vertical-align: middle;
 }
 
-.header-text {
+.header-block label {
     font-size: x-large;
     font-weight: bold;
     display: inline-grid;
@@ -22,21 +23,10 @@
 }
 
 a.nav-tab {
-    padding: 5px 10px;
     margin-left: 10px;
     align-self: center;
-    text-decoration: none;
-    cursor: pointer;
-    border-radius: 6px;
-    background-color: var(--color-button);
-    color: black;
-    border: 2px solid var(--color-button-hover);
-    transition-duration: 0.4s;
     white-space: nowrap;
-}
-
-a.nav-tab:hover {
-    background-color: var(--color-button-hover);
+    background-color: var(--color-primary);
 }
 
 .nav-elements {
